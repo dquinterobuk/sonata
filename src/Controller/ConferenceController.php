@@ -9,12 +9,10 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ConferenceController extends AbstractController
 {
-    #[Route('/hello/{name}', name: 'app_conference')]
-    public function index(string $name): Response
+    #[Route('/', name: 'homepage')]
+    public function index(): Response
     {   
-        return $this->render('conference/index.html.twig', [
-            'name' => $name,
-        ]);
+        return $this->render('conference/index.html.twig');
 
     }
 }

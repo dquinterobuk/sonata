@@ -32,6 +32,10 @@ class Comment
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $photoFilename;
 
+    public function __toString(){
+        return $this->email;
+    }
+
     public function getId(): ?int
     {
         return $this->id;
