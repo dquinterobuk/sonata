@@ -9,3 +9,8 @@ services:
         POSTGRES_PASSWORD: main
         POSTGRES_USER: main
     ports: [5432]
+
+  redis:
+    image: redis:5-alpine
+    ports: [6379]
+

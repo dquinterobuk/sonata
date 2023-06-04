@@ -8,6 +8,7 @@ use App\Repository\ConferenceRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 class ConferenceController extends AbstractController
@@ -15,6 +16,9 @@ class ConferenceController extends AbstractController
     #[Route('/', name: 'homepage')]
     public function index(ConferenceRepository $conferenceRepository): Response
     {   
+        // SessionInterface $session
+        // dump($session->get('prueba'));
+
         $conferences = $conferenceRepository->findAll();
         return $this->render('conference/index.html.twig', [
             'conferences' => $conferences,
