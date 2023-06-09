@@ -36,7 +36,7 @@ class ConferenceController extends AbstractController
         // dump($session->get('prueba'));
 
         $conferences = $conferenceRepository->findAll();
-        $response = new Response($this->render('conference/index.html.twig', [
+        $response = new Response($this->renderView('conference/index.html.twig', [
             'conferences' => $conferenceRepository->findAll(),
         ]));
 
@@ -49,7 +49,7 @@ class ConferenceController extends AbstractController
     #[Route('/conference_header', name: 'conference_header')]
     public function conferenceHeader(ConferenceRepository $conferenceRepository): Response
     {
-        $response = new Response($this->render('conference/header.html.twig', [
+        $response = new Response($this->renderView('conference/header.html.twig', [
             'conferences' => $conferenceRepository->findAll(),
         ]));
         $response->setSharedMaxAge(3600);
