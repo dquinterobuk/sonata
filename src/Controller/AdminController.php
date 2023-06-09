@@ -44,7 +44,7 @@ class AdminController extends AbstractController
             $this->bus->dispatch(new CommentMessage($comment->getId()));
         }
 
-        return new Response($this->render('admin/review.html.twig', [
+        return new Response($this->renderView('admin/review.html.twig', [
             'transition' => $transition,
             'comment' => $comment,
         ]));
